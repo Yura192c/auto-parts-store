@@ -1,0 +1,68 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block cssblock %}
+
+    <link rel="stylesheet" href="{% static 'shop/css/list.css' %}">
+{% endblock %}
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+    <div id="sidebar" class="Information">
+        <div class="dropdown">
+            <button class="dropbtn">Categories</button>
+            <div class="dropdown-content">
+                <a href="{% url 'product_list' %}">All</a>
+                {% for c in categories %}
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                {% endfor %}
+            </div>
+          </div>
+        
+          <!-- <h3>Categories</h3>
+        <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+                <a href="{% url "product_list" %}">All</a>
+            </li>
+            {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+        </ul> -->
+    </div>
+    <!-- <div class="sub-category">
+        <div class="dropdown">
+            <button class="dropbtn">Sub Categories</button>
+            <div class="dropdown-content">
+                <a href="{% url 'product_list' %}">All</a>
+                {% for s in sub_categories %}
+                    <a href="{{ s.get_absolute_url }}">{{ s.name }}</a>
+                {% endfor %}
+            </div>
+          </div>
+    </div> -->
+    <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+    <div class="sub-category-box">
+        {% for categor in sub_categories %}
+            <div class="category-item">
+                <a href="{{ categor.get_absolute_url }}" style="background: url({% if categor.image %}{{ categor.image.url }}{% else %}{% static "shop/static/img/no_image.png" %}{% endif %}); background-size: cover; background-position: center;">
+                    <!-- <img src="{% if categor.image %}{{ categor.image.url }}{% else %}{% static "shop/static/img/no_image.png" %}{% endif %}"> -->
+                </a>
+                <a href="{{ categor.get_absolute_url }}">{{ categor.name }}</a><br>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- <div id="main" class="product-list">
+
+        {% for product in products %}
+            <div class="item">
+                <a href="{{ product.get_absolute_url }}" style="background: url({{ product.image.url }}); background-size: cover; background-position: center;">
+{#                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "shop/static/img/no_image.png" %}{% endif %}">#}
+                </a>
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                ${{ product.price }}
+            </div>
+        {% endfor %}
+    </div> -->
+{% endblock %}

@@ -1,0 +1,108 @@
+/* .item_product{
+    width: 200px;
+    height: 200px;
+
+}
+
+.item_product img {
+    width: 100%;
+    height: 100%;
+} */
+
+
+.item_product{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+}
+.item_product a{
+    width: 100%;
+    height: 100%;
+}
+/* .product_detail{
+
+    color: white;
+    margin-left: 20px;
+} */
+.item_product img{
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden;
+    background: #4d4d4d;
+    background-size: contain;
+    flex-direction: column;
+
+    margin: 20px; */
+
+}
+
+tbody .total_info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+/*  */
+
+table {
+    width:100%;
+    border-spacing:0;
+    border-collapse: collapse; 
+}
+
+table th, table td {
+    text-align:left;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+tbody tr:nth-child(odd) {
+    background:#2b2929;
+}
+
+tbody tr.subtotal {
+    background:#2c2c2c;
+}
+
+thead th, tbody tr.total {
+    background:#5993bb;
+    color:#fff;
+    font-weight:bold;
+}
+
+table.cart {
+    margin-bottom:40px;
+}
+
+tbody td.num {
+    text-align:right;
+}
+
+td input[type="submit"] {
+    font-size:12px;
+    padding:4px 10px;
+}
+
+form p label, form p input {
+    float:left;
+    clear:both;
+}
+
+form p label {
+    font-size:14px;
+    padding-bottom:4px;
+}
+
+form p input {
+    width:300px;
+    font-size:13px;
+    margin-bottom:10px;
+    padding:10px 12px;
+    border:0;
+    background:#efefef;
+    color:#fff;
+    border-radius:4px;
+}

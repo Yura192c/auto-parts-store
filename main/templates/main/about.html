@@ -1,0 +1,88 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block cssblock %}
+<link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+{% endblock %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="b-content clearfix" style=" padding-top: 0px">
+  <div class="b-container">
+    <div class="b-container-2col">
+      <div class="b-c2c-left">
+        <ul class="" b-side-nav>
+          <li>
+            <a href="{% url 'contacts' %}" target="_self">Контакты</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}" target="_self">О нас</a>
+          </li>
+
+
+        </ul>
+      </div>
+      <div class="b-c2c-right">
+        <!-- <ul class="'path" itemscope="'itemscope" itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="itemscope">
+            <a itemprop="item" href="{% url 'home' %}">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+             /
+          </li>
+          <li itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="itemscope">
+            <a itemprop="item" href="{% url 'about' %}">
+              <span itemprop="name">О нас</span>
+            </a>
+            <meta itemprop="position" content="2">
+             / 
+          </li>
+          <li itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="itemscope">
+            <a itemprop="item" href="{% url 'contacts' %}">
+              <span itemprop="name">Контакты</span>
+            </a>
+            <meta itemprop="position" content="3">
+             / 
+          </li>
+
+        </ul> -->
+        <h1 class="main-title">Контакты</h1>
+        <article class="text">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="contact_block">
+                <div class="contact_block_label_1">Телефон</div>
+                <p itemprop="telephone" class="telephone">+375 (44) 789-47-10</p>
+                <div class="contact_block_label_2">Почта</div>
+                <p itemprop="email" class="email">
+                  <a href="mailto:yra.mironchik2003@gmail.com">yra.mironchik2003@gmail.com</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contact_block">
+                <div class="contact_block_label">Адрес <img src="{% static 'main/img/i-place.png'%}" alt="Logo"></div>
+                <p itemprop="address" class="address">
+                  <span itemprop="postalCode">223141</span>,
+                  <span itemprop="addressLocality">г. Логойск</span>,
+                  <span itemprop="streetAddress">улица Победы 21</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="contact_block">
+                <div class="contact_block_label">Режим работы</div>
+                <p class="work_time">
+                  <span itemprop="worktime">Пн-Пт: 9:00-18:00</span>
+                  <span itempop="worktime">Сб: 10:00-13:00</span>
+                  <span itempop="worktime">Вс: выходной</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

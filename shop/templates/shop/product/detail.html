@@ -1,0 +1,66 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block cssblock %}
+
+    <link rel="stylesheet" href="{% static 'shop/css/detail.css' %}">
+{% endblock %}
+{% block title %}
+    {% if category %}{{ category.title }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+    <div class="product-detail">
+        <div class="image_box">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'shop/img/no_image.png'%}"{% endif %}">
+        </div>
+        <div class="wrap-variants">
+            <div class="box-filter">
+                <div class="content-filter">
+                    {% for key, value in product.characteristics.items %}
+
+                    <div class="rowfilter">
+                        <div class="wrap-name">
+                            <div class="txt">{{key}}</div>
+                        </div>
+                        <div class="wrap-name-dotted"></div>
+                        <div class="txt">{{value}}</div>
+
+                    </div>
+        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+        <h1>{{ product.name }}</h1>
+        <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+        <p class="price">${{ product.price }}</p>
+    <!-- {{cart.clear}} -->
+    <form action="{% url "cart:cart_add" product.id %}" method="post">
+      {{ cart_product_form }}
+      {% csrf_token %}
+      <input type="submit" value="Добавить в корзину">
+    </form>
+    <div class="box-artdescript">
+        <div class="wrap-header-section">
+            <h3 class="section-name">Описание товара</h3>
+            <div class="button-hint" data-tooltip="click" onclick="showInfo()">
+                <img src="{% static 'shop/img/icons8-info-16.png'%}" alt="Logo">
+                <div id="info" class="box-tooltip" style="display: none;">
+                    <div>
+                        <div class="wrap-tooltip">
+                            Вся информация (фото, характеристики, комплектация, страна производитель и т.д.) о товаре
+                            предоставлена
+                            на сайте для ознакомления и не является публичной офертой. Производители могут изменять любую
+                            информацию
+                            о товаре без предварительного уведомления продавца и потребителя.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-name">{{ product.name }}</p>
+        <p class="text-description">{{ product.description|linebreaks }}</p>
+    </div>
+    <script src="{% static 'shop/js/detail.js' %}"></script>
+    </div>
+{% endblock %}
